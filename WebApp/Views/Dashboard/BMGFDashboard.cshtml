@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "SattvaDashboard";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login page</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- -->
+        <div class="row align-items-center mel-top-bar">
+            <div class="col-lg-3" style="padding-left: 0%;">
+                <div class="logo-thumbnail">
+                    <img src="~/img/logo thumbnail.svg">
+                    <img src="~/img/MEL PM dash logo.svg">
+                </div>
+            </div>
+            <div class="col-lg-7">
+
+            </div>
+
+            <div class="col-lg-2 user-img flex-container">
+                <div><img src="~/img/ProfilePic.svg"></div>
+                <a href="/Login/Logout">Logout</a>
+                <div class="user-wrapper flex-column bd-highlight mb-3">
+                    <p class="name">@ViewBag.userName</p>
+                    <p class="persona">@ViewBag.organization</p>
+                </div>
+            </div>
+        </div>
+        <div class="row bmgf-bar">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
+                <ul class="list-inline nav-lists d-flex flex-nowrap align-items-center bmgf-items">
+                    <li><img src="~/img/Nav item pre icon Home.svg"></li>
+                    <li><img src="~/img/Nav item pre icon SG.svg">Stratagic Goals</li>
+                    <li><img src="~/img/Nav item pre icon BOW.svg">Body of Work</li>
+                    <li><img src="~/img/Nav item pre icon Geo.svg">Geographies</li>
+                    <li><img src="~/img/nav item pre Grants.svg"> Grants</li>
+                </ul>
+            </div>
+            <div class="col-lg-2 d-flex flex-nowrap align-items-center">
+                <ul class="list-inline nav-lists d-flex align-items-center bmgf-items">
+                    <li><img src="~/img/Nav item pre IkeyInfo.svg"> KEY INFO & DATA SOURCES</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col-lg-12 footer-copyright text-center">
+            Copyright 2021
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

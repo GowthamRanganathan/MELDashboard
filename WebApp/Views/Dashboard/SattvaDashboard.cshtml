@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "SattvaDashboard";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="header" style="display: block">
+        <div class="iconproperties">
+            <img src="~/img/logo%20thumbnail.svg" height="45px">
+            <img src="~/img/MEL_logo.svg" height="30px">
+            <button id="configureBtn" class="buttonstyle" style="margin-left:27%;color:#ad8755" onclick="navigate()">
+                <span><b>CONFIGURE</b></span>
+            </button>
+            <button id="manageBtn" class="buttonstyle" onclick="window.location.href= '@Url.Action("Manage", "Manage")'">
+                <span><b>MANAGE</b></span>
+            </button>
+            <button id="visualizeBtn" class="buttonstyle">
+                <span><b>VISUALIZE</b></span>
+            </button>
+
+            <div class="dropdown" style="float:right">
+                <div>
+                    <div style="color:white;margin-left: -35%;">
+                        <b>Aditi</b>
+                        <br>
+                        <span style="font-size:10px;">Sattva</span>
+                    </div>
+                    <div style="margin: -75%; margin-left: 15%;">
+                        <img style=" height: 60px; width: 62px;" src="~/img/ProfilePic.svg">
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/Login/Logout">Sign Out</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="height: 7.5vw;margin: 0 auto;margin-top: -2%;background-color: #faf8f5; width:72%;border-radius: 25px;pointer-events: none;">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-2" style="margin: 20px;">
+                    <div>
+                        <span style="color:grey">Welcome</span>
+                    </div>
+                    <br />
+                    <div style="margin-top: -10px;">
+                        <span><b>Aditi</b></span>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+                <div class="col-1" style="margin: 15px;">
+                    <span style="padding-left: 15px;font-size: large;"><b>4</b></span>
+                    <br />
+                    <span style="color:grey;font-size: smaller;">STRATEGIC GOALS</span>
+                </div>
+                <div class="vertical" style="margin-left: 7%;"></div>
+                <div class="col-1" style="margin: 14px;max-width:10%">
+                    <span style="padding-left: 15px;font-size: large;"><b>4</b></span>
+                    <br />
+                    <span style="color:grey;font-size: smaller;">BODY OF WORK</span>
+                </div>
+                <div class="col-1" style="margin: 15px;">
+                    <span style="padding-left: 10px;font-size: large;"><b>3</b></span>
+                    <br />
+                    <span style="color:grey;font-size: smaller;">GEO</span>
+                </div>
+                <div class="vertical" style="margin-left: 30%;"></div>
+                <div class="col-1" style="margin: 15px;">
+                    <span style="padding-left: 15px;font-size: large;"><b>10</b></span>
+                    <br />
+                    <span style="color:grey;font-size: smaller;">GRANTS</span>
+                </div>
+                <div class="vertical" style="margin-left: 39%;"></div>
+                <div class="col-1" style="margin-top:15px;margin-left: -2%;">
+                    <span style="padding-left: 15px;font-size: large;"><b>56</b></span>
+                    <br />
+                    <span style="color:grey;font-size: smaller;">OUTPUT INDICATORS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row secondblock">
+        <div class="col-12 col-s-12 secondinlineblock">
+            <div class="col-5">
+                <div style="margin-left:12vw">
+                    <h2><b>Configure</b></h2>
+                    <p style=" font-family:roboto;font-size:12px">
+                        <b style="color:darkgray;">
+                            Create, Edit Strategic goals, BOW, Grants and Indicators.
+                        </b>
+                        <br />
+                        <b style="color:darkgray;">
+                            Add or remove associations within them.
+                        </b>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div class="col-12">
+                    <div class="col-6" style="text-align:right">
+                        <button type="button" class="btn btn-default" style="background-color:#0c7562;color: white;color: white; font-size:80%; height:40px">
+                            <span style="text-align:left;font-size:80%;vertical-align: middle;" class="glyphicon glyphicon-plus"></span>
+                            <span style="margin:2%;">Create Output Indicator</span>
+                        </button>
+
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-default" style="color: #0c7562; font-size:80%; height:40px">
+                            <span style="text-align:left;font-size:80%;vertical-align: middle;" class="glyphicon glyphicon-pencil"></span>
+                            <span style="margin:2%;">All Output Indicator</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="thirdinlineblock">
+
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="~/css/SattvaDashboard.css" rel="stylesheet" />
+}

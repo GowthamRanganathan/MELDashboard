@@ -1,0 +1,200 @@
+﻿@model List<RepositoryLayer.Models.Manage.GrantDetails>
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <div class="header" style="display: block">
+            <div class="iconproperties">
+                <img src="~/img/logo%20thumbnail.svg" height="45px">
+                <img src="~/img/MEL_logo.svg" height="30px">
+                <button id="configureBtn" class="buttonstyle" style="margin-left:27%" onclick="navigate()">
+                    <span><b>CONFIGURE</b></span>
+                </button>
+                <button id="manageBtn" class="buttonstyle" style="color: #ad8755">
+                    <span><b>MANAGE</b></span>
+                </button>
+                <button id="visualizeBtn" class="buttonstyle">
+                    <span><b>VISUALIZE</b></span>
+                </button>
+
+                <div class="dropdown" style="float:right">
+                    <div>
+                        <div style="color:white;margin-left: -35%;margin-top: -2px;">
+                            <b>Aditi</b>
+                            <br>
+                            <span style="font-size:10px;">Sattva</span>
+                        </div>
+                        <div style="margin: -75%; margin-left: 15%;">
+                            <img style=" height: 60px; width: 62px;margin-top: -5px;" src="~/img/ProfilePic.svg">
+                        </div>
+                    </div>
+                    <div class="dropdown-content" style="width:95px">
+                        <a href="/Login/Logout">Sign Out</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row secondblock">
+            <div class="col-12 col-s-12 secondinlineblock">
+                <div style="margin-left:12vw">
+                    <h2><b>Manage</b></h2>
+                    <p style=" font-family:roboto;font-size:12px">
+                        <b style="color:darkgray;">
+                            Create or edit a template of respective grant<br> Download the template,fill it and upload data.
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div class="thirdinlineblock">
+                <table class="table">
+                    <tr>
+                        <th colspan="7">
+                            <span style="color:dimgrey;">GRANTS (@Model.Count())</span>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="circlecoloumn">
+                                <svg height="50" width="50">
+                                    <circle cx="25" cy="25" r="20" stroke="#cacccc" stroke-width="3" fill="#fcfcfc" />
+                                </svg>
+                            </td>
+
+                            <asp:HiddenField ID="grant_id" Value="@item.grant_id" runat="server" />
+
+                            <td class="secondcoloumn">
+                                <div><span style="font-size: small;"><b>@item.grant_name</b></span></div>
+                            </td>
+
+                            <td class="thirdcoloumn">
+                                <div style="color:darkgray;font-size:0.75vw"><b>Last Modified</b> </div>
+                                <div style="color:dimgrey;font-size:0.75vw"><b>@item.update_date</b> </div>
+                            </td>
+
+                            <td>
+                                <div style="color:#6b7075">
+                                    <button class="options" onclick="openCreate()">
+                                        <img src="~/img/create.png"> <span style="font-size:smaller">Create</span>
+                                    </button>
+                                </div>
+                            </td>
+
+                            <td class="thirdcoloumn">
+                                <div style="color:#6b7075">
+                                    <form style="display: inline" action="@Url.Action("DownloadGrant","Manage",new { grantName = item.grant_name })" method="post">
+                                        <button class="options">
+                                            <img src="~/img/Download.png"><span style="font-size:smaller">Download</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+
+                            <td class="thirdcoloumn">
+                                <div style="color:#6b7075">
+                                    <button class="options">
+                                        <img src="~/img/Edit.png"><span style="font-size:smaller">Edit</span>
+                                    </button>
+                                </div>
+                            </td>
+
+                            <td class="thirdcoloumn">
+                                <button class="uploadbutton" onclick="document.getElementById('getFile').click()"><img src="~/img/Upload.png" style="height:20px">Upload data</button>
+                                <input type='file' id="getFile" style="display:none">
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="exampleModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="transform: translate(-20%, 5%); width: 85vw;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Template</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="col-1">
+                                <span style="color:dimgray">Define Tabs & Columns Under it</span>
+                            </div>
+                            <div class="col-11" style="position:relative">
+                                <div class="col-3">
+                                    @*<span style="color:dimgray">Tab Name:</span>
+                                    <textarea id="w3review" rows="4" cols="30">JSPAT Overview</textarea>*@
+                                    <div class="wrap">
+                                        <textarea id="w3review" rows="4" cols="30">JSPAT Overview</textarea>
+                                        <span style="color:dimgray">Tab Name:</span>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    @*<span style="color:dimgray">Columns under the tab:</span>
+                                    <textarea id="w3review" rows="4" cols="30">JSPAT Overview</textarea>*@
+                                    <div class="wrap">
+                                        <textarea id="w3review" rows="4" cols="30">JSPAT Overview</textarea>
+                                        <span style="color:dimgray">Tab Name:</span>
+                                    </div>
+                                </div>
+                                 <div class="col-2">JJ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function navigate() {
+
+    var userOrg = '@HttpContextAccessor.HttpContext.Session.GetString("UserOrganisation")';
+    //SattvaDashboard
+    if (userOrg == "Sattva") {
+        window.location.href = '@Url.Action("SattvaDashboard", "Dashboard")';
+    }
+    else if (userOrg == "BMGF") {
+        window.location.href = '@Url.Action("BMGFDashboard", "Dashboard")';
+    }
+
+    }
+
+    function openCreate() {
+       // $('#exampleModal').modal('show');
+       // var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), options)
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+            keyboard: false,
+        });
+        myModal.show();
+    }
+</script>
+
+
+
+@section Scripts {
+    <link href="~/css/Manage.css" rel="stylesheet" />
+}
+
